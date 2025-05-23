@@ -1,0 +1,175 @@
+/* General Layout & Panels */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.game-info-panel,
+.opponents-area,
+.player-area,
+.results-panel,
+.action-area {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 800px; /* Max width for better readability */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.game-info-panel h2,
+.opponents-area h2,
+.player-area h2,
+.results-panel h3,
+.results-panel h2 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+/* Card Styles */
+.card-display-area {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.card {
+  border: 2px solid #ccc;
+  padding: 10px;
+  margin: 5px;
+  display: inline-flex; /* Use flex for internal alignment */
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around; /* Distribute space */
+  width: 80px;
+  height: 120px;
+  text-align: center;
+  position: relative;
+  border-radius: 6px;
+  background-color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease-out, border-color 0.2s ease-out;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.card.selected {
+  border-color: #007bff; /* Blue border for selected */
+  transform: translateY(-10px) scale(1.05); /* Lift and slightly enlarge */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.card .rank {
+  font-size: 24px; /* Larger rank */
+  font-weight: bold;
+  display: block;
+}
+
+.card .suit {
+  font-size: 28px; /* Larger suit symbol */
+  display: block;
+}
+
+.card .joker-text { /* Specific style for "JOKER" text */
+  font-size: 14px;
+  font-weight: bold;
+  color: purple;
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.joker .rank, .joker .suit { /* For Joker cards, rank/suit might be styled differently or hidden if text is primary */
+  color: purple;
+}
+
+
+/* Turn Highlighting */
+.current-turn-highlight {
+  background-color: #e6ffed; /* Softer green */
+  border-left: 5px solid #28a745; /* Green accent border */
+  padding: 10px;
+  border-radius: 4px;
+}
+
+/* Game Messages */
+.game-message {
+  padding: 12px 15px;
+  margin: 15px 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.game-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.game-message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.game-message.info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+.game-message button {
+  background: none;
+  border: none;
+  color: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+/* Buttons */
+button {
+  padding: 8px 15px;
+  margin: 5px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button.discard-button {
+  background-color: #dc3545; /* Red */
+  color: white;
+}
+button.discard-button:hover {
+  background-color: #c82333;
+}
+
+/* Opponent and Player Info */
+.opponents-area div, .player-area div.player-info {
+  padding: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.opponents-area div:last-child, .player-area div.player-info:last-child {
+  border-bottom: none;
+}
